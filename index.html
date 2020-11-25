@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>prototypische Vererbung</title>
+
+    <script>
+
+
+        var Auto = {
+            raeder: 4,
+            tueren: 5,
+            lenkradlinks: true,
+            ps: 150,
+            geschwindigkeit: 0,
+            farbe: "silber",
+            beschleunigen: function (){
+                this.geschwindigkeit += this.ps/10;
+            },
+            bremsen: function (){
+                if (this.geschwindigkeit > (this.geschwindigkeit/10)) this.geschwindigkeit -= this.geschwindigkeit/10;
+                else this.geschwindigkeit = 0;
+            },
+            beschreibung: function (){
+                return "Dieses wunderschöne Auto hat " + this.raeder + " Räder und " + this.tueren + " Türen. Der Motor besitzt " + this.ps +
+                       " PS und die Farbe des Autos ist " + this.farbe + ".";
+            }
+        }
+
+
+        var Skoda = Object.create(Auto);
+        Skoda.farbe = 'grün';
+        console.log(Skoda.beschreibung());
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
